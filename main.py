@@ -5,7 +5,7 @@ import logging
 from pathlib import Path
 import discord
 from internal.classbot import ringoBot
-from discord.ext import commands
+from nextcord.ext import commands
 import traceback
 
 DiscordBot_Cogs = [
