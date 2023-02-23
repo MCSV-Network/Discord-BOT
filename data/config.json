@@ -1,8 +1,6 @@
 {
 	"token": "BOT_TOKEN",
-	"prefix": "mc!",
-	"intents": ["all"],
-	"description": "A MCSV Bot.",
+	"prefix": "mcs.",
   
 	"database": "Toggles database"
   }

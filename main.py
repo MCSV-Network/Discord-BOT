@@ -13,19 +13,6 @@ DiscordBot_Cogs = [
 #	'cogs.UwU'
 ]
 
-#def load_config():
-#    from os.path import join, dirname
-#
-#
-#    # Create .env file path.
-#    dotenv_path = join(dirname(__file__), '.env')
-#
-#    # Load file from the path.
-#    load_dotenv(dotenv_path)
-#
-#    with open('data/config.json', 'r', encoding='utf-8') as doc:
-#        #  Please make sure encoding is correct, especially after editing the config file
-#        return json.load(doc)
 
 def load_config():
 	from os.path import join, dirname
@@ -58,23 +45,12 @@ async def run():
 	intents = discord.Intents.all()
 	intents.typing = False
 
-class ringoBot(commands.Bot):
-	def __init__(self, command_prefix):
-		super().__init__(command_prefix)
-		for cog in DiscordBot_Cogs:
-			try:
-				self.load_extension(cogs)
-			except Exception:
-				traceback.print_exc()
 
-if "__main__" == __name__:
-	bot = ringoBot(command_prefix='mcs.')
-#	bot = MCSVBot(
-#			config=config,
-#			description=config['description'],
-#			intents=intents
-#        )
-#	bot.config = config
+	bot = ringoBot(
+			config=config,
+			intents=intents
+        )
+	bot.config = config
 
 	try:
 		token = get_config_var('BOT_TOKEN', config, 'token', error=True)
