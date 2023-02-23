@@ -7,7 +7,7 @@ class MainCmdCog(commands.Cog):
 
 	@commands.command()
 	async def cmd(self, ctx):
-		await ctx.send("コマンドを受信しました。")
+		await ctx.send("こんにちは!!!")
 
 def setup(bot):
 	bot.add_cog(MainCmdCog(bot))
