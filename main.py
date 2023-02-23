@@ -4,6 +4,7 @@ import json
 import logging
 from pathlib import Path
 import discord
+from internal.classbot import ringoBot
 from discord.ext import commands
 import traceback
 
@@ -48,15 +49,14 @@ async def run():
 
 	bot = ringoBot(
 			config=config,
-			intents=intents
         )
 	bot.config = config
 
 	try:
 		token = get_config_var('BOT_TOKEN', config, 'token', error=True)
-		bot.start(token)
+		await bot.start(token)
 	except KeyboardInterrupt:
-		bot.logout()
+		await bot.logout()
 		exit()
 
 
