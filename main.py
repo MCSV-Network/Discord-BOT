@@ -3,7 +3,6 @@ import asyncio
 import json
 import logging
 from pathlib import Path
-from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 import traceback
@@ -28,10 +27,26 @@ DiscordBot_Cogs = [
 #        #  Please make sure encoding is correct, especially after editing the config file
 #        return json.load(doc)
 
+def load_config():
+	from os.path import join, dirname
+	from dotenv import load_dotenv
+
+	# Create .env file path.
+	dotenv_path = join(dirname(__file__), '.env')
+
+	# Load file from the path.
+	load_dotenv(dotenv_path)
+
+	with open('data/config.json', 'r', encoding='utf-8') as doc:
+		#  Please make sure encoding is correct, especially after editing the config file
+		return json.load(doc)
 
 async def run():
 
 	def get_config_var(env_name, config_path, config_name, **kwargs):
+		"""
+		Attempts to get a variable from the env file, then from the config key, and finally, if none found, returns the fallback value.
+		"""
 		v = os.getenv(env_name, config_path.get(config_name, kwargs.get('fallback')))
 
 		if v is None and kwargs.get('error', False):
