@@ -52,7 +52,7 @@ class ringoBot(commands.Bot):
 			except Exception:
 				traceback.print_exc()
 
-
+if "__main__" == __name__:
 	bot = ringoBot(command_prefix='mcs.')
 #	bot = MCSVBot(
 #			config=config,
