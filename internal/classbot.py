@@ -2,7 +2,7 @@ import asyncio
 import datetime
 import time
 from pathlib import Path
-import discord
+import nextcord as discord
 import traceback
 from nextcord.ext import commands
 

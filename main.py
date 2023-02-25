@@ -3,7 +3,7 @@ import asyncio
 import json
 import logging
 from pathlib import Path
-import discord
+import nextcord as discord
 from internal.classbot import ringoBot
 from nextcord.ext import commands
 import traceback
