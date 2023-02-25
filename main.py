@@ -38,6 +38,7 @@ async def run():
 
 	try:
 		token = os.getenv('BOT_TOKEN')
+		print("Logined as: ")(token)
 		await bot.start(token)
 	except KeyboardInterrupt:
 		await bot.logout()
