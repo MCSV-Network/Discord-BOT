@@ -4,7 +4,7 @@ import time
 from pathlib import Path
 import discord
 import traceback
-from discord.ext import commands
+from nextcord.ext import commands
 
 DiscordBot_Cogs = [
 	'cogs.cmd',
