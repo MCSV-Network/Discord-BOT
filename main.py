@@ -42,7 +42,8 @@ async def run():
 
 
 	bot = ringoBot(
-			config=config,
+			token: 'BOT_TOKEN',
+			prefix: 'mcs.'
         )
 	bot.config = config
 
