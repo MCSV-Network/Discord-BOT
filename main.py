@@ -6,17 +6,17 @@ import nextcord as discord
 from internal.classbot import ringoBot
 from nextcord.ext import commands
 import traceback
+from os.path import join, dirname
+from dotenv import load_dotenv
 
-
-def load_env():
-	from os.path import join, dirname
-	from dotenv import load_dotenv
-
-	# Create .env file path.
-	dotenv_path = join(dirname(__file__), '.env')
-
-	# Load file from the path.
-	load_dotenv(dotenv_path)
+#def load_env():
+#
+#
+#	# Create .env file path.
+#	dotenv_path = join(dirname(__file__), '.env')
+#
+#	# Load file from the path.
+#	load_dotenv(dotenv_path)
 
 async def run():
 
@@ -37,6 +37,7 @@ async def run():
 	bot = ringoBot(command_prefix='mcs.')
 
 	try:
+		load_dotenv()
 		token = os.getenv('BOT_TOKEN')
 		print("Logined as:", token)
 		await bot.start(token)
