@@ -1,7 +1,7 @@
 import nextcord as discord
 from nextcord.ext import commands
 import asyncio
-from internal import constants
+from internal import emoji
 
 async def confirm(ctx: commands.Context, message: discord.Message):
     """
@@ -11,17 +11,17 @@ async def confirm(ctx: commands.Context, message: discord.Message):
     """
 
     def check(r, u):
-        return str(r.emoji) in (constants.CONFIRM_REACTION_EMOJI, constants.CANCEL_REACTION_EMOJI) and u.id == ctx.author.id and r.message.id == message.id
+        return str(r.emoji) in (emoji.CONFIRM_REACTION_EMOJI, emoji.CANCEL_REACTION_EMOJI) and u.id == ctx.author.id and r.message.id == message.id
 
-    await message.add_reaction(constants.CONFIRM_REACTION_EMOJI)
-    await message.add_reaction(constants.CANCEL_REACTION_EMOJI)
+    await message.add_reaction(emoji.CONFIRM_REACTION_EMOJI)
+    await message.add_reaction(emoji.CANCEL_REACTION_EMOJI)
 
     try:
         reaction, user = await ctx.bot.wait_for('reaction_add', timeout=10.0, check=check)
 
         emoji = str(reaction.emoji)
 
-        if emoji == constants.CONFIRM_REACTION_EMOJI:
+        if emoji == emoji.CONFIRM_REACTION_EMOJI:
             return True
         return False
     except asyncio.TimeoutError:
