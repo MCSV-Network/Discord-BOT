@@ -1,10 +1,9 @@
+from nextcord.ext import commands
 import nextcord as discord
 import subprocess
 import os
 from dotenv import load_dotenv
-from nextcord.ext import commands
 from internal import checkconfirm, emoji
-
 COMMAND = os.environ.get("COMMAND")
 
 class SrvRestartCog(commands.Cog):

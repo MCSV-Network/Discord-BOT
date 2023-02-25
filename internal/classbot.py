@@ -9,7 +9,7 @@ from nextcord.ext import commands
 DiscordBot_Cogs = [
 	'cogs.cmd',
 	'cogs.test'
-#	'cogs.UwU'
+	'cogs.servrestart'
 ]
 
 class ringoBot(commands.Bot):
