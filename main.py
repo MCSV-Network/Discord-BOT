@@ -1,6 +1,5 @@
 import os
 import asyncio
-import json
 import logging
 from pathlib import Path
 import nextcord as discord
@@ -9,7 +8,7 @@ from nextcord.ext import commands
 import traceback
 
 
-def load_config():
+def load_env():
 	from os.path import join, dirname
 	from dotenv import load_dotenv
 
@@ -18,10 +17,6 @@ def load_config():
 
 	# Load file from the path.
 	load_dotenv(dotenv_path)
-
-	with open('data/config.json', 'r', encoding='utf-8') as doc:
-		#  Please make sure encoding is correct, especially after editing the config file
-		return json.load(doc)
 
 async def run():
 
@@ -36,19 +31,13 @@ async def run():
 
 		return v
 
-	config = load_config()
 	intents = discord.Intents.all()
 	intents.typing = False
 
-
-	bot = ringoBot(
-			token: 'BOT_TOKEN',
-			prefix: 'mcs.'
-        )
-	bot.config = config
+	bot = ringoBot(prefix='mcs.')
 
 	try:
-		token = get_config_var('BOT_TOKEN', config, 'token', error=True)
+		token = os.getenv('BOT_TOKEN')
 		await bot.start(token)
 	except KeyboardInterrupt:
 		await bot.logout()
