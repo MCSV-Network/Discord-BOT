@@ -8,12 +8,6 @@ from internal.classbot import ringoBot
 from nextcord.ext import commands
 import traceback
 
-DiscordBot_Cogs = [
-	'cogs.cmd',
-	'cogs.test'
-#	'cogs.UwU'
-]
-
 
 def load_config():
 	from os.path import join, dirname
