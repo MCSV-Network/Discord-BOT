@@ -19,4 +19,4 @@ class ringoBot(commands.Bot):
 			try:
 				self.load_extension(cogs)
 			except Exception:
-				traceback.print_exec()
+				traceback.print_exc()
