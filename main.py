@@ -34,7 +34,9 @@ async def run():
 	intents = discord.Intents.all()
 	intents.typing = False
 
-	bot = ringoBot(command_prefix='mcs.')
+	bot = ringoBot(
+		command_prefix='mcs.'
+		)
 
 	try:
 		load_dotenv()
