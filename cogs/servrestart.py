@@ -1,5 +1,4 @@
 from nextcord.ext import commands
-import nextcord as discord
 import subprocess
 import os
 from dotenv import load_dotenv
