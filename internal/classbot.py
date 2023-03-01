@@ -8,7 +8,7 @@ from nextcord.ext import commands
 
 DiscordBot_Cogs = [
 	'cogs.cmd',
-	'cogs.test'
+	'cogs.test',
 	'cogs.servrestart'
 ]
 
