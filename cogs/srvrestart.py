@@ -38,5 +38,6 @@ class SrvRestartCog(commands.Cog):
 		elif confirmed == None:
 			await msg.edit(content=f'{emoji.TIMEOUT_EMOJI}時間内に応答がありませんでした!')
 			return
+
 def setup(bot):
 	bot.add_cog(SrvRestartCog(bot))
