@@ -3,7 +3,7 @@ import subprocess
 import os
 from dotenv import load_dotenv
 from internal import checkconfirm
-from internal import discordemoji as emoji
+from internal import dcmoji as emoji
 COMMAND = os.environ.get("COMMAND")
 
 class SrvRestartCog(commands.Cog):
