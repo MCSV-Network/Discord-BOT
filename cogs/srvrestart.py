@@ -3,7 +3,7 @@ import subprocess
 import os
 from dotenv import load_dotenv
 from internal import checkconfirm
-from internal import dcmoji as emoji
+from internal import dcmoji
 COMMAND = os.environ.get("COMMAND")
 
 class SrvRestartCog(commands.Cog):
@@ -17,7 +17,7 @@ class SrvRestartCog(commands.Cog):
 		confirmed = await checkconfirm.confirm(ctx, msg)
 
 		if confirmed == True:
-			await msg.edit(content=f'{emoji.LOADING_EMOJI} 実行中です...(1分ほどお待ちください!)')
+			await msg.edit(content=f'{dcmoji.LOADING_EMOJI} 実行中です...(1分ほどお待ちください!)')
 			print ("Loading SubProccess")
 			ret = subprocess.run(COMMAND, capture_output=True, text=True)
 			print ("Result:")
@@ -27,17 +27,17 @@ class SrvRestartCog(commands.Cog):
 			print("エラー:", ret.stderr)
 			if ret.returncode == 0:
 				print ("Success! ")
-				await msg.edit(content=f'{emoji.CHECKMARK_EMOJI} 成功しました!')
+				await msg.edit(content=f'{dcmoji.CHECKMARK_EMOJI} 成功しました!')
 				return
 			else:
 				print ("Failed!")
-				await msg.edit(content=f'{emoji.FAILED_EMOJI} エラーが発生しました! Return Code {ret.returncode}')
+				await msg.edit(content=f'{dcmoji.FAILED_EMOJI} エラーが発生しました! Return Code {ret.returncode}')
 				return
 		elif confirmed == False:
-			await msg.edit(content=f'{emoji.CANCEL_REACTION_EMOJI} キャンセルしました!')
+			await msg.edit(content=f'{dcmoji.CANCEL_REACTION_EMOJI} キャンセルしました!')
 			return
 		elif confirmed == None:
-			await msg.edit(content=f'{emoji.TIMEOUT_EMOJI}時間内に応答がありませんでした!')
+			await msg.edit(content=f'{dcmoji.TIMEOUT_EMOJI}時間内に応答がありませんでした!')
 			return
 
 def setup(bot):
