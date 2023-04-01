@@ -13,6 +13,7 @@ class SrvRestartCog(commands.Cog):
         self.bot = bot
 
     @commands.command()
+    @commands.has_role("運営")
     async def restart(self, ctx):
         msg = await ctx.send('本当に実行しますか?(この操作を取り消す事はできません!)')
 
