@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 from internal import checkconfirm
 from internal import dcmoji
 
-COMMAND = os.environ.get("COMMAND")
+load_dotenv()
+COMMAND = os.getenv("COMMAND")
 
 class SrvRestartCog(commands.Cog):
     def __init__(self, bot):
