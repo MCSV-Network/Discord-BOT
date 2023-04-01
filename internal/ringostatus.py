@@ -1,10 +1,13 @@
 import asyncio
 import nextcord as discord
 from random import randrange as rr
+
 activity = discord.Activity(name="起動中…", type=discord.ActivityType.playing)
 client = discord.Client(activity=activity)
 @client.event
-async def on_ready():
+
+
+async def startrpc():
    print("Login completed")
    print('------')
    while True:
