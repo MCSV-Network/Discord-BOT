@@ -11,22 +11,19 @@ async def confirm(ctx: commands.Context, message: discord.Message):
     """
     
     try:
-        dcmoji.say() # この行が必要な場合は、tryブロックに移動する必要があります。
-
-        confirm_emoji = dcmoji.CONFIRM_REACTION_EMOJI
-        cancel_emoji = dcmoji.CANCEL_REACTION_EMOJI
+        dcmoji.say()
         
         def check(r, u):
-            return str(r.dcmoji) in (confirm_emoji, cancel_emoji) and u.id == ctx.author.id and r.message.id == message.id
+            return str(r.emoji) in (dcmoji.CONFIRM_REACTION_EMOJI, dcmoji.CANCEL_REACTION_EMOJI) and u.id == ctx.author.id and r.message.id == message.id
 
-        await message.add_reaction(confirm_emoji)
-        await message.add_reaction(cancel_emoji)
+        await message.add_reaction(dcmoji.CONFIRM_REACTION_EMOJI)
+        await message.add_reaction(dcmoji.CANCEL_REACTION_EMOJI)
 
         reaction, user = await ctx.bot.wait_for('reaction_add', timeout=10.0, check=check)
 
-        selected_emoji = str(reaction.dcmoji)
+        emoji = str(reaction.emoji)
 
-        if selected_emoji == confirm_emoji:
+        if emoji == dcmoji.CONFIRM_REACTION_EMOJI:
             return True
         return False
     except asyncio.TimeoutError:
