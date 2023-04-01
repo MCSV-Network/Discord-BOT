@@ -1,5 +1,5 @@
 import asyncio
-import discord
+import nextcord as discord
 from random import randrange as rr
 activity = discord.Activity(name="起動中…", type=discord.ActivityType.playing)
 client = discord.Client(activity=activity)
