@@ -4,6 +4,7 @@ import logging
 from pathlib import Path
 import nextcord as discord
 from internal.classbot import ringoBot
+from internal import ringostatus
 from nextcord.ext import commands
 import traceback
 from os.path import join, dirname
