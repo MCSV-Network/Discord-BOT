@@ -35,7 +35,7 @@ async def run():
 	intents.typing = False
 
 	bot = ringoBot(
-		command_prefix='mcs.'
+		command_prefix='mc!'
 		)
 
 	try:
