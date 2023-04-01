@@ -6,6 +6,8 @@ activity = discord.Activity(name="起動中…", type=discord.ActivityType.playi
 client = discord.Client(activity=activity)
 @client.event
 
+async def iamringostatus():
+	print('Loaded ringostatus py!')
 
 async def startrpc():
    print("Login completed")

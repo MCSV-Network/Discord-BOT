@@ -21,6 +21,7 @@ from dotenv import load_dotenv
 
 async def run():
 
+	ringostatus.iamringostatus	
 	def get_config_var(env_name, config_path, config_name, **kwargs):
 		"""
 		Attempts to get a variable from the env file, then from the config key, and finally, if none found, returns the fallback value.
@@ -44,6 +45,7 @@ async def run():
 		token = os.getenv('BOT_TOKEN')
 		print("Logined as:", token)
 		ringostatus.startrpc
+		print("Starting RPC")
 		await bot.start(token)
 	except KeyboardInterrupt:
 		await bot.logout()
