@@ -1,7 +1,7 @@
 import nextcord as discord
 from nextcord.ext import commands
 import asyncio
-from . import dcmoji
+from internal import dcmoji
 
 async def confirm(ctx: commands.Context, message: discord.Message):
     """
