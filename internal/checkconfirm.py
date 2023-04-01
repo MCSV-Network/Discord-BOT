@@ -4,6 +4,7 @@ import asyncio
 from internal import dcmoji
 
 async def confirm(ctx: commands.Context, message: discord.Message):
+    dcmoji.say()
     """
     Creates a confirm/cancel reaction menu that returns True or False depending on which reaction was clicked.
 

@@ -12,6 +12,7 @@ class SrvRestartCog(commands.Cog):
 
 	@commands.command()
 	async def restart(self, ctx):
+		dcmoji.say()
 		msg = await ctx.send('本当に実行しますか?(この操作を取り消す事はできません!)')
 
 		confirmed = await checkconfirm.confirm(ctx, msg)

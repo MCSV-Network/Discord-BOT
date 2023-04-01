@@ -1,6 +1,6 @@
 #Add ur Emoji
 
-def loaded_emoji():
+def say():
 	print('Loaded Emoji py!')
 
 CONFIRM_REACTION_EMOJI = '🟢' # Reaction emoji used to confirm actions
