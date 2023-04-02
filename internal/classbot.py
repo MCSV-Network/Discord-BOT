@@ -10,6 +10,7 @@ DiscordBot_Cogs = [
 	'cogs.cmd',
 	'cogs.srvrestart',
 	'cogs.test',
+	'cogs.errorhandler',
 ]
 
 class ringoBot(commands.Bot):
