@@ -12,8 +12,6 @@ import threading
 
 from os.path import join, dirname
 from dotenv import load_dotenv
-
-client = discord.Client()
 #def load_env():
 #
 #
@@ -48,7 +46,7 @@ async def run():
 		token = os.getenv('BOT_TOKEN')
 		print("Logined as:", token)
 		print("Starting RPC")
-		bot.loop.create_task(ringostatus.botstatus(client))
+		bot.loop.create_task(ringostatus.botstatus(bot))
 		await bot.start(token)
 
 	except KeyboardInterrupt:

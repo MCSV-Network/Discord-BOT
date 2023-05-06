@@ -7,15 +7,15 @@ def iamringostatus():
 
 
 
-async def botstatus(client):
+async def botstatus(bot):
    print("Login completed")
    print('------')
    while True:
-       await client.change_presence(activity = discord.Game(name="実験中のbotだよ!", type=discord.ActivityType.playing))
+       await bot.change_presence(activity = discord.Activity(name="実験中のbotだよ!", type=discord.ActivityType.playing))
        await asyncio.sleep(15)
-       joinserver=len(client.guilds)
+       joinserver=len(bot.guilds)
        servers=str(joinserver)
-       await client.change_presence(activity = discord.Game(name="サーバー数:"+servers, type=discord.ActivityType.playing))
+       await bot.change_presence(activity = discord.Activity(name="サーバー数:"+servers, type=discord.ActivityType.playing))
        await asyncio.sleep(15)
-       await client.change_presence(activity = discord.Game(name="乱数:"+str(rr(0,101)), type=discord.ActivityType.playing))
+       await bot.change_presence(activity = discord.Activity(name="乱数:"+str(rr(0,101)), type=discord.ActivityType.playing))
        await asyncio.sleep(15)
