@@ -46,8 +46,8 @@ async def run():
 		token = os.getenv('BOT_TOKEN')
 		print("Logined as:", token)
 		print("Starting RPC")
-		bot.loop.create_task(ringostatus.botstatus(bot))
 		await bot.start(token)
+		bot.loop.create_task(ringostatus.botstatus(bot))
 
 	except KeyboardInterrupt:
 		await bot.logout()
