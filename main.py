@@ -43,7 +43,7 @@ async def run():
 		load_dotenv()
 		token = os.getenv('BOT_TOKEN')
 		print("Logined as:", token)
-		ringostatus.startrpc
+		await ringostatus.startrpc()
 		print("Starting RPC")
 		await bot.start(token)
 	except KeyboardInterrupt:
