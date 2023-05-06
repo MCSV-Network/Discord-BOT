@@ -10,6 +10,7 @@ import traceback
 from os.path import join, dirname
 from dotenv import load_dotenv
 
+activity = discord.Activity(name="起動中…", type=discord.ActivityType.playing)
 #def load_env():
 #
 #
@@ -36,7 +37,8 @@ async def run():
 	intents.typing = False
 
 	bot = ringoBot(
-		command_prefix='mc!'
+		command_prefix='mc!',
+		bot = discord.Client(activity=activity)
 		)
 
 	try:
@@ -56,3 +58,18 @@ if __name__ == '__main__':
 
 	loop = asyncio.get_event_loop()
 	loop.run_until_complete(run())
+
+
+
+async def startrpc():
+	print("Login completed")
+	print('------')
+	while True:
+		await bot.change_presence(activity = discord.Activity(name="実験中のbotだよ!", type=discord.ActivityType.playing))
+		await asyncio.sleep(15)
+		joinserver=len(bot.guilds)
+		servers=str(joinserver)
+		await bot.change_presence(activity = discord.Activity(name="サーバー数:"+servers, type=discord.ActivityType.playing))
+		await asyncio.sleep(15)
+		await bot.change_presence(activity = discord.Activity(name="乱数:"+str(rr(0,101)), type=discord.ActivityType.playing))
+		await asyncio.sleep(15)
