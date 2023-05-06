@@ -7,10 +7,13 @@ from internal.classbot import ringoBot
 from internal import ringostatus
 from nextcord.ext import commands
 import traceback
+from random import randrange as rr
+import threading
+
 from os.path import join, dirname
 from dotenv import load_dotenv
 
-activity = discord.Activity(name="起動中…", type=discord.ActivityType.playing)
+client = discord.Client()
 #def load_env():
 #
 #
@@ -38,16 +41,16 @@ async def run():
 
 	bot = ringoBot(
 		command_prefix='mc!',
-		bot = discord.Client(activity=activity)
 		)
 
 	try:
 		load_dotenv()
 		token = os.getenv('BOT_TOKEN')
 		print("Logined as:", token)
-		await ringostatus.startrpc()
 		print("Starting RPC")
+		bot.loop.create_task(ringostatus.botstatus(client))
 		await bot.start(token)
+
 	except KeyboardInterrupt:
 		await bot.logout()
 		exit()
@@ -58,18 +61,3 @@ if __name__ == '__main__':
 
 	loop = asyncio.get_event_loop()
 	loop.run_until_complete(run())
-
-
-
-async def startrpc():
-	print("Login completed")
-	print('------')
-	while True:
-		await bot.change_presence(activity = discord.Activity(name="実験中のbotだよ!", type=discord.ActivityType.playing))
-		await asyncio.sleep(15)
-		joinserver=len(bot.guilds)
-		servers=str(joinserver)
-		await bot.change_presence(activity = discord.Activity(name="サーバー数:"+servers, type=discord.ActivityType.playing))
-		await asyncio.sleep(15)
-		await bot.change_presence(activity = discord.Activity(name="乱数:"+str(rr(0,101)), type=discord.ActivityType.playing))
-		await asyncio.sleep(15)
