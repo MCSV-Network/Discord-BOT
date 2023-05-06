@@ -47,7 +47,6 @@ async def run():
 		print("Logined as:", token)
 		print("Starting RPC")
 		await bot.start(token)
-		bot.loop.create_task(ringostatus.botstatus(bot))
 
 	except KeyboardInterrupt:
 		await bot.logout()
@@ -60,5 +59,8 @@ if __name__ == '__main__':
 	loop = asyncio.get_event_loop()
 	loop.run_until_complete(run())
 
+@ringoBot.event
 async def on_ready():
 	print("Bot is Ready!")
+	ringoBot.loop.create_task(ringostatus.botstatus(bot))
+	print("task created")

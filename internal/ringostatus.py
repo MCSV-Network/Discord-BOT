@@ -8,8 +8,6 @@ def iamringostatus():
 
 
 async def botstatus(bot):
-	print("Waiting")
-	await bot.wait_until_ready()
 	print("Login completed")
 	print('------')
 	while True:
